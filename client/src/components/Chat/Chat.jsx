@@ -55,10 +55,18 @@ const Chat = () => {
   }
 
   useEffect(() => {
+    const data = {
+      text : 'hi, how i can help you ? ' , 
+      isBot : true  ,  
+    }
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
-  }, );
+    setResponses((responses) => [...responses, data])
+    console.log(responses) ; 
+
+  },[]);
 
   return (
+    
     <div className="container rounded d-flex  container_wrapper">
       <div className="row ">
         <h2 className='text-dark text-center py-2 border-bottom'>chatbot</h2>
