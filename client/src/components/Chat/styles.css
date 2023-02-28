@@ -17,7 +17,7 @@
 .chat_wrapper
 {
     height: 94%;
-    overflow-y: auto;
+    overflow-y: scroll;
     
 }
 

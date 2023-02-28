@@ -6,14 +6,30 @@ import './styles.css';
 const Chat = () => {
   const [responses, setResponses] = useState([])
   const [currentMessage, setCurrentMessage] = useState('');
-  const [backendData, setBackendData] = useState([{}]) ; 
-  const [userInput, setUserInput] = useState('') ; 
-  const [dialogFlowRes,setDialogFlowRes ] = useState('') ; 
+  // const [backendData, setBackendData] = useState([{}]) ; 
+  // const [userInput, setUserInput] = useState('') ; 
+  // const [dialogFlowRes,setDialogFlowRes ] = useState('') ; 
   // const [codeHtml,setCodeHtml ] = useState('') ; 
   const containerRef = useRef(null);
 
-  const languageCode = 'en-US'
-  const queryText = currentMessage;
+  // const welcoming = ()=>{
+  //   const welocomeMessage = {
+  //     text : 'hi, how i can help you ? ' , 
+  //     isBot : true  ,  
+  //   }
+
+  //   setResponses([welocomeMessage])
+  // }
+  
+  useEffect(() => {
+    // welcoming();
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  },);
+
+  const languageCode = 'fr'
+  // const queryText = currentMessage;
   const sessionId = Math.random()*10;
 
 
@@ -27,7 +43,7 @@ const Chat = () => {
               isBot: true,
               codeHtml : res.data.html
             }
-              if (res.status==200 ){
+              if (res.status===200 ){
                 setResponses((responses) => [...responses, responseData]) ; 
                 // setCodeHtml(res.data.html)
               }
@@ -37,6 +53,7 @@ const Chat = () => {
         
           sendData();
   }
+
   const handleMessageChange = (event) => {
     setCurrentMessage(event.target.value)
   }
@@ -54,16 +71,7 @@ const Chat = () => {
     }
   }
 
-  useEffect(() => {
-    const data = {
-      text : 'hi, how i can help you ? ' , 
-      isBot : true  ,  
-    }
-    containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    setResponses((responses) => [...responses, data])
-    console.log(responses) ; 
 
-  },[]);
 
   return (
     
@@ -85,11 +93,11 @@ const Chat = () => {
           type="text"
           className='form-control'
           placeholder='enter you msg here' />
-          <button class="btn btn-primary btn-sm " >send </button>
+          <button  className="btn btn-primary btn-sm " >send </button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Chat
+export default Chat;
