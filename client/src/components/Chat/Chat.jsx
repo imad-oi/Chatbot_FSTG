@@ -12,21 +12,21 @@ const Chat = () => {
   // const [codeHtml,setCodeHtml ] = useState('') ; 
   const containerRef = useRef(null);
 
-  // const welcoming = ()=>{
-  //   const welocomeMessage = {
-  //     text : 'hi, how i can help you ? ' , 
-  //     isBot : true  ,  
-  //   }
+  const welcoming = ()=>{
+    const welocomeMessage = {
+      text : 'entrer vote code apoge' , 
+      isBot : true  ,  
+    }
 
-  //   setResponses([welocomeMessage])
-  // }
+    setResponses([welocomeMessage])
+  }
   
   useEffect(() => {
-    // welcoming();
+    welcoming();
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  },);
+  },[]);
 
   const languageCode = 'fr'
   // const queryText = currentMessage;
@@ -38,6 +38,7 @@ const Chat = () => {
     const sendData = () => {
         axios.post("http://localhost:5000/api/chatbot", {languageCode , queryText , sessionId })
            .then((res) =>{
+            console.log(res.data);
             const responseData ={
               text: res.data.response,
               isBot: true,
@@ -82,6 +83,8 @@ const Chat = () => {
       <div ref={containerRef} className="row chat_wrapper">
         <div className="col">
           <Messages  messages={responses}/>
+        
+
         </div>
       </div>
       <div className="row input_wrapper">
@@ -100,4 +103,5 @@ const Chat = () => {
   )
 }
 
-export default Chat;
+
+export default Chat ;

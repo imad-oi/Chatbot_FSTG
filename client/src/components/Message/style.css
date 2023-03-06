@@ -20,6 +20,7 @@
     overflow-wrap: break-word;
     padding: 7px;
     font-weight: bold;
+    box-shadow: inset;
 }
 
 .user {
