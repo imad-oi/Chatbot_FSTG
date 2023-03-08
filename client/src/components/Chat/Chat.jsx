@@ -6,27 +6,24 @@ import './styles.css';
 const Chat = () => {
   const [responses, setResponses] = useState([])
   const [currentMessage, setCurrentMessage] = useState('');
-  // const [backendData, setBackendData] = useState([{}]) ; 
-  // const [userInput, setUserInput] = useState('') ; 
-  // const [dialogFlowRes,setDialogFlowRes ] = useState('') ; 
-  // const [codeHtml,setCodeHtml ] = useState('') ; 
   const containerRef = useRef(null);
+  const [userProfile, setUserProfile] = useState(''); 
+  const [isLoading, setIsLoading] = useState(true)
 
-  const welcoming = ()=>{
-    const welocomeMessage = {
-      text : 'entrer vote code apoge' , 
-      isBot : true  ,  
-    }
+  // const welcoming = ()=>{
+  //   const welocomeMessage = {
+  //     text : 'entrer vote code apoge' , 
+  //     isBot : true  ,  
+  //   }
 
-    setResponses([welocomeMessage])
-  }
+  
   
   useEffect(() => {
-    welcoming();
+    // welcoming();
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  },[]);
+  },);
 
   const languageCode = 'fr'
   // const queryText = currentMessage;
@@ -38,15 +35,20 @@ const Chat = () => {
     const sendData = () => {
         axios.post("http://localhost:5000/api/chatbot", {languageCode , queryText , sessionId })
            .then((res) =>{
+            setIsLoading(false);
             console.log(res.data);
+            if(res.data.nom){
+              setUserProfile(res.data.nom) ;
+            }
+              // i created this object to store all data comes from http://localhost:5000/api/chatbot
             const responseData ={
               text: res.data.response,
               isBot: true,
-              codeHtml : res.data.html
+              codeHtml : res.data.html, 
+              nom : res.data.nom
             }
-              if (res.status===200 ){
+              if (res.status===200){
                 setResponses((responses) => [...responses, responseData]) ; 
-                // setCodeHtml(res.data.html)
               }
            })
            .catch(err => console.log(err))
@@ -72,19 +74,59 @@ const Chat = () => {
     }
   }
 
+  const load = (
+      <div>
+        <i class="fa-duotone fa-loader"></i>
+      </div>
+    )
 
+
+
+const welcoming = (
+    <div className='welcoming'>
+        <p>Bienvenue, je suis votre assitant scolaire, voici les services que je peut en repondre :</p>
+        <ul>
+          <li>consultation des notes</li>
+          <li>Chercher de fomations</li>
+          <li>demander un rendez-vous </li>
+          <li>demander releve des notes </li>
+        </ul>
+        <p className='text-black fw-bold text-center'> Saisir votre code apoge avant toute autre chose</p>
+    </div>
+)
+
+const userAccount = (
+  <div className='userAccount'>
+      {/* <span className='text-success'><i class="fa-solid fa-circle"></i></span> */}
+      <span className='text-success' ><i class="fa-solid fa-circle-user"></i></span>
+      <p>{userProfile}</p>
+  </div>
+)
 
   return (
     
     <div className="container rounded d-flex  container_wrapper">
-      <div className="row ">
-        <h2 className='text-dark text-center py-2 border-bottom'>chatbot</h2>
+
+      <div className="row  border-bottom mb-3">
+        <div className="col">
+          <img className='py-2' src="http://www.fstg-marrakech.ac.ma/FST/images/LOGO_FST.png" alt="" />
+        </div>
+        <div className="col">
+          <h2 className='text-center pt-4'>ChatBot </h2> { (isLoading)? load : ''}
+        </div>
+        <div className="col text-light">
+          {
+               (userProfile) ? userAccount : ''
+          }
+        </div>
+          <p className=' ' >
+            { (!responses[0]) ? welcoming : '' }
+          </p>
       </div>
+
       <div ref={containerRef} className="row chat_wrapper">
         <div className="col">
-          <Messages  messages={responses}/>
-        
-
+          <Messages userAccount={userAccount} messages={responses}/>
         </div>
       </div>
       <div className="row input_wrapper">

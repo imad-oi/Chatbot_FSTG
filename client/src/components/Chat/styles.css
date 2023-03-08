@@ -1,15 +1,17 @@
 .container_wrapper
 {
     position: absolute;
-    right: 3%;
+    right: 5%;
     bottom: 3%;
     background-color:whitesmoke;
-    height: 600px;
+    height: 90%;
     width: 500px;
     display: flex;
     flex-direction: column;
+    background: url(../../../src/assets/perspective-exterior-nobody-empty-box.jpg) ;
     /* box-shadow: inset; */
-    background-color: rgba(128, 128, 128, 0.658);
+    /* background-color: rgba(128, 128, 128, 0.658);
+     */
 }
 
 .chat_wrapper::-webkit-scrollbar {
@@ -30,3 +32,22 @@
     margin: 10px -10px ;
     /* margin-right: 3px; */
 }
+
+
+.welcoming{
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+.userAccount{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width:110px ;
+    padding-top: 30px;
+
+
+} 
+

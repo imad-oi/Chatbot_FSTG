@@ -9,16 +9,16 @@ const Button = ({ show, showBtn }) => {
           className="btn-plus"
           onClick={() => showBtn()}
         >
-          show
-          <i className="fa fa-plus"></i>
+          <i class="fa-solid fa-comments fa-2x"></i>
+          {/* <i className="fa fa-plus"></i> */}
         </button>
       ) : (
         <button
           className="btn-moins"
           onClick={() => showBtn(!show)}
         >
-          show
-          <i className="fa fa-minus"></i>
+          <i class="fa-solid fa-comments fa-2x"></i>
+          {/* <i className="fa fa-minus"></i> */}
         </button>
       )}
     </div>

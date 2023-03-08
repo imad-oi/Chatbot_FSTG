@@ -102,6 +102,7 @@ import React, { useState } from 'react'
 import Button from './components/Button/Button'
 import Chat from './components/Chat/Chat'
 import {Route , BrowserRouter as Router ,Routes} from 'react-router-dom';
+import Home from '../src/components/home'
 
 
 function App() {
@@ -113,6 +114,7 @@ function App() {
 
   return (
     <>
+    <Home/>
       <Button show={show} showBtn={showBtn} />
       {show && <Chat />}
       
