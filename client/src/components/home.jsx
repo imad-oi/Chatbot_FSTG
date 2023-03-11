@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const home = () => {
   return (
     <div> 
-        {/* nav bar */}
         <div classNameName="row">
             <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
                 <div className="container-fluid">
@@ -24,35 +23,20 @@ const home = () => {
                 </div>
             </nav>
             </div>
-
-            {/* home page */}
             <div clasName="row">
-
-                <div className="col">
-                    <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem vero, culpa deserunt officia suscipit, veniam maiores esse, quo provident sunt ut perspiciatis distinctio itaque laboriosam repellat mollitia at voluptate tenetur.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nobis natus fugit nisi delectus perferendis suscipit, recusandae expedita? Quod accusamus nam ex neque facere ullam eveniet quis, nesciunt deserunt necessitatibus aliquam, harum sequi!
-                    </p>
+                <div className="col p-3 m-3" >
+                    <h1>Bienvenue chez chatbot Faculte des sciences et Techniques</h1>
                 </div>
-
-                <div className="col-md-6">
-
-                    <div className="card" style={{
-                        width:"18em"
-                    }} >
-                      <img src=""  className="card-img-top" alt="..."/>
-                      <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <h6 className="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        b5
-                      </div>
-                    </div>
-
-                </div>
-                
             </div>
-
-            
+            <div className="col">
+                <img src="https://img.freepik.com/free-vector/flat-woman-chatting-with-chatbot-communicating-ai-robot-assistant_88138-959.jpg?size=626&ext=jpg" alt="image" />
+            </div>
+                <div className="col"> 
+                    <ul className='text-dark'>Realisé par : 
+                        <li className='mx-3 text-dark fw-bold nav'> OISSAFE IMAD</li>
+                        <li className='mx-3 text-dark fw-bold nav'> OHSSINE ABDELFATAH</li>
+                    </ul>
+                </div>
     </div>
   )
 }

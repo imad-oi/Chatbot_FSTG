@@ -10,28 +10,17 @@ const Chat = () => {
   const [userProfile, setUserProfile] = useState(''); 
   const [isLoading, setIsLoading] = useState(true)
 
-  // const welcoming = ()=>{
-  //   const welocomeMessage = {
-  //     text : 'entrer vote code apoge' , 
-  //     isBot : true  ,  
-  //   }
-
-  
   
   useEffect(() => {
-    // welcoming();
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   },);
 
   const languageCode = 'fr'
-  // const queryText = currentMessage;
   const sessionId = Math.random()*10;
 
-
   const handleMessageSubmit = (queryText) => {
-    // const data = {languageCode ,queryText ,  sessionId }
     const sendData = () => {
         axios.post("http://localhost:5000/api/chatbot", {languageCode , queryText , sessionId })
            .then((res) =>{
@@ -40,12 +29,12 @@ const Chat = () => {
             if(res.data.nom){
               setUserProfile(res.data.nom) ;
             }
-              // i created this object to store all data comes from http://localhost:5000/api/chatbot
             const responseData ={
               text: res.data.response,
               isBot: true,
               codeHtml : res.data.html, 
-              nom : res.data.nom
+              nom : res.data.nom , 
+              fonction : res.data.fonction
             }
               if (res.status===200){
                 setResponses((responses) => [...responses, responseData]) ; 
@@ -53,7 +42,6 @@ const Chat = () => {
            })
            .catch(err => console.log(err))
         }
-        
           sendData();
   }
 
@@ -74,13 +62,6 @@ const Chat = () => {
     }
   }
 
-  const load = (
-      <div>
-        <i class="fa-duotone fa-loader"></i>
-      </div>
-    )
-
-
 
 const welcoming = (
     <div className='welcoming'>
@@ -97,22 +78,19 @@ const welcoming = (
 
 const userAccount = (
   <div className='userAccount'>
-      {/* <span className='text-success'><i class="fa-solid fa-circle"></i></span> */}
       <span className='text-success' ><i class="fa-solid fa-circle-user"></i></span>
       <p>{userProfile}</p>
   </div>
 )
-
   return (
     
     <div className="container rounded d-flex  container_wrapper">
-
       <div className="row  border-bottom mb-3">
         <div className="col">
           <img className='py-2' src="http://www.fstg-marrakech.ac.ma/FST/images/LOGO_FST.png" alt="" />
         </div>
         <div className="col">
-          <h2 className='text-center pt-4'>ChatBot </h2> { (isLoading)? load : ''}
+          <h2 className='text-center pt-4'>ChatBot </h2> 
         </div>
         <div className="col text-light">
           {
@@ -138,7 +116,7 @@ const userAccount = (
           type="text"
           className='form-control'
           placeholder='enter you msg here' />
-          <button  className="btn btn-primary btn-sm " >send </button>
+          <button  className="btn btn-primary btn-sm "  >send </button>
         </div>
       </div>
     </div>

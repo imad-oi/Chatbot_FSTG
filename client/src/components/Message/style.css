@@ -13,10 +13,10 @@
 .bot_msg{
     color:white;
     background-color:rgba(88, 88, 247, 0.982) ;
-    border-radius: 6px 10px 10px 10px;
+    border-radius: 3px 12px 12px 12px;
     border: none;
     width: fit-content;
-    max-width: 170px;
+    max-width: 250px;
     overflow-x: auto;
     overflow-wrap: break-word;
     padding: 7px;
@@ -24,17 +24,17 @@
     box-shadow: inset;
 }
 
-.bot_msg::before {
-    content: ''; /* Contenu vide */
-    position: absolute; /* Permet de positionner la flèche */
-    left: 0; /* Position à gauche de l'élément parent */
-    top: 15px; /* Position verticale centrée */
-    transform: translateY(-50%); /* Décalage vertical pour centrer la flèche */
-    border-top: 8px solid transparent; /* Triangle vers le haut transparent */
-    border-bottom: 8px solid transparent; /* Triangle vers le bas transparent */
-    border-right: 8px solid rgba(88, 88, 247, 0.982); /* Triangle vers la droite avec couleur de fond */
+/* .bot_msg::before {
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    top: 15px; 
+    transform: translateY(-50%);
+    border-top: 8px solid transparent; 
+    border-bottom: 8px solid transparent; 
+    border-right: 8px solid rgba(88, 88, 247, 0.982); 
     padding-left: 25.5px;    
-}
+} */
 
 
 .user {
@@ -42,6 +42,9 @@
     float: right;
     align-items: start;
     position: relative;
+    padding-top: 10px;
+    margin: 9px 0;
+
 }
 
 .user_msg{
@@ -50,21 +53,21 @@
     overflow-wrap: break-word;
     text-align: center;
     width: fit-content;
-    border-radius: 10px 6px 10px 10px;
+    border-radius: 12px 3px 12px 12px;
     border: none;
-    max-width: 160px;
+    max-width: 170px;
     padding: 5px 7px;
-    margin-left: 300px;
+    margin-left: 270px;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-/* 
-.user_msg::before {
+
+/* .user_msg::before {
  content: '';
   position: absolute;
-  right: 23.4px; 
-  top: 15px; 
+  right: 20px; 
+  top: 23px; 
   transform: translateY(-50%); 
   border-top: 8px solid transparent; 
   border-bottom: 8px solid transparent; 

@@ -9,9 +9,6 @@
     display: flex;
     flex-direction: column;
     background: url(../../../src/assets/perspective-exterior-nobody-empty-box.jpg) ;
-    /* box-shadow: inset; */
-    /* background-color: rgba(128, 128, 128, 0.658);
-     */
 }
 
 .chat_wrapper::-webkit-scrollbar {
@@ -30,7 +27,6 @@
     width:500px;
     height: 6%;
     margin: 10px -10px ;
-    /* margin-right: 3px; */
 }
 
 
