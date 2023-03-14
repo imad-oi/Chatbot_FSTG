@@ -6,7 +6,7 @@ const Message = ({ message}) => {
  
   return (
     <>
-      {message.isBot ? (
+      { message.isBot ? (
         <div className=" row bot">
           <div className='col-1 px-1'>
           <i class="fa-solid fa-robot"></i>

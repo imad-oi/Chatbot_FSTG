@@ -4,9 +4,9 @@ const home = () => {
   return (
     <div> 
         <div classNameName="row">
-            <nav className="navbar navbar-expand-sm navbar-light bg-secondary">
+            <nav className="navbar navbar-expand-sm navbar-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">primary</a>
+                    <a className="navbar-brand" href="#">FSTG</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                         aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -14,9 +14,8 @@ const home = () => {
                     <div className="collapse navbar-collapse" id="navbarID">
                         <div className="navbar-nav">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <a className="nav-link active" aria-current="page" href="#">Contact</a>
+                            <a className="nav-link active" aria-current="page" href="#">About us</a>
                             
                         </div>
                     </div>
@@ -25,7 +24,7 @@ const home = () => {
             </div>
             <div clasName="row">
                 <div className="col p-3 m-3" >
-                    <h1>Bienvenue chez chatbot Faculte des sciences et Techniques</h1>
+                    <h1>Chatbot Faculte des sciences et Techniques</h1>
                 </div>
             </div>
             <div className="col">

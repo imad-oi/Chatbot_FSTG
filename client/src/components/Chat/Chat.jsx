@@ -65,12 +65,12 @@ const Chat = () => {
 
 const welcoming = (
     <div className='welcoming'>
-        <p>Bienvenue, je suis votre assitant scolaire, voici les services que je peut en repondre :</p>
+        <p>Bienvenue, je suis votre Chatbot scolaire, voici les services que je peut en repondre :</p>
         <ul>
-          <li>consultation des notes</li>
+          <li>Consultation des notes</li>
           <li>Chercher de fomations</li>
-          <li>demander un rendez-vous </li>
-          <li>demander releve des notes </li>
+          <li>Demander un rendez-vous </li>
+          <li>Demander releve des notes </li>
         </ul>
         <p className='text-black fw-bold text-center'> Saisir votre code apoge avant toute autre chose</p>
     </div>
@@ -79,20 +79,20 @@ const welcoming = (
 const userAccount = (
   <div className='userAccount'>
       <span className='text-success' ><i class="fa-solid fa-circle-user"></i></span>
-      <p>{userProfile}</p>
+      <p className='bg-light rounded-2 px-1 '>{userProfile}</p>
   </div>
 )
   return (
     
     <div className="container rounded d-flex  container_wrapper">
-      <div className="row  border-bottom mb-3">
+      <div className="row mb-3 header_chatbot">
         <div className="col">
           <img className='py-2' src="http://www.fstg-marrakech.ac.ma/FST/images/LOGO_FST.png" alt="" />
         </div>
         <div className="col">
-          <h2 className='text-center pt-4'>ChatBot </h2> 
+          <h2 className='text-center pt-4'> <i class="fa-solid fa-robot" aria-hidden="true"></i> ChatBot   </h2> <p className='text-center'>online</p>
         </div>
-        <div className="col text-light">
+        <div className="col text-dark">
           {
                (userProfile) ? userAccount : ''
           }
@@ -116,7 +116,7 @@ const userAccount = (
           type="text"
           className='form-control'
           placeholder='enter you msg here' />
-          <button  className="btn btn-primary btn-sm "  >send </button>
+          {/* <button  className="btn btn-primary btn-sm ">send </button> */}
         </div>
       </div>
     </div>
