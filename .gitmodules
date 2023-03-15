@@ -1,0 +1,3 @@
+[submodule "server_side"]
+	path = server_side
+	url = https://github.com/imad-oi/chatbot_server.git
